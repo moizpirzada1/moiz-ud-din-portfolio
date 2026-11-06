@@ -1669,3 +1669,219 @@ a:focus-visible,
     font-size: 8px;
   }
 }
+
+.hero {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+
+.hero-copy {
+  width: min(100%, 820px);
+  padding-bottom: 0;
+}
+
+.eyebrow {
+  justify-content: center;
+}
+
+.hero-intro {
+  margin-inline: auto;
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+.hero-note {
+  right: 0;
+  justify-content: center;
+}
+
+.hero-art {
+  justify-self: center;
+}
+
+.scroll-cue {
+  right: 0;
+  justify-content: center;
+}
+
+.intro-section,
+.focus-section,
+.work-section,
+.research-section,
+.experience-section,
+.skills-section,
+.education-section {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.section-index {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.intro-content,
+.focus-content,
+.work-content,
+.research-content,
+.experience-content,
+.skills-content,
+.education-content {
+  width: min(100%, 1080px);
+  margin-inline: auto;
+}
+
+.section-kicker {
+  text-align: center;
+}
+
+.intro-content > .section-kicker,
+.experience-content > .section-kicker,
+.education-content > .section-kicker {
+  text-align: center;
+}
+
+.intro-content h2,
+.focus-heading h2,
+.work-heading h2,
+.experience-content > h2,
+.skills-content h2 {
+  text-align: center;
+}
+
+.intro-bottom > p {
+  text-align: center;
+}
+
+.focus-heading,
+.work-heading {
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.focus-heading > div,
+.work-heading > div {
+  width: 100%;
+}
+
+.focus-heading .focus-aside,
+.work-heading .focus-aside {
+  max-width: 500px;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.project-filters {
+  justify-content: center;
+}
+
+.focus-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.focus-card {
+  grid-column: span 2;
+}
+
+.focus-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.focus-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.project-count {
+  text-align: center;
+}
+
+.focus-footnote {
+  text-align: center;
+}
+
+.research-content > .section-kicker {
+  text-align: center;
+}
+
+.research-card {
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+
+.experience-list {
+  width: min(100%, 880px);
+  margin-inline: auto;
+}
+
+.skills-grid {
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+
+.education-card {
+  width: min(100%, 880px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1101px) {
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 78px;
+  }
+
+  .hero-note {
+    display: none;
+  }
+
+  .hero-actions {
+    align-items: center;
+  }
+
+  .intro-section,
+  .focus-section,
+  .work-section,
+  .research-section,
+  .experience-section,
+  .skills-section,
+  .education-section {
+    gap: 0;
+  }
+
+  .section-index {
+    margin-bottom: 25px;
+  }
+
+  .intro-content h2,
+  .focus-heading h2,
+  .work-heading h2,
+  .experience-content > h2,
+  .skills-content h2 {
+    text-align: center;
+  }
+
+  .work-heading .focus-aside {
+    text-align: center;
+  }
+
+  .project-filters {
+    justify-content: center;
+  }
+
+  .focus-card,
+  .focus-card:nth-child(4),
+  .focus-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .experience-card {
+    text-align: left;
+  }
+}
