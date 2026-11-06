@@ -6,6 +6,7 @@
   --panel: #171916;
   --line: rgba(243, 241, 233, 0.13);
   --acid: #d3f36b;
+  --page-gutter: 48px;
   --mono: "DM Mono", monospace;
   --sans: "Manrope", sans-serif;
 }
@@ -47,13 +48,38 @@ button {
 }
 
 .page-shell {
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .section-wrap,
 .site-header {
-  width: min(1200px, calc(100% - 96px));
+  width: min(1200px, calc(100% - 2 * var(--page-gutter)));
   margin-inline: auto;
+}
+
+.hero-copy,
+.intro-content,
+.focus-content,
+.work-content,
+.research-content,
+.experience-content,
+.skills-content,
+.education-content,
+.project-card,
+.project-body,
+.research-copy,
+.skill-group {
+  min-width: 0;
+}
+
+.intro-content,
+.focus-content,
+.work-content,
+.research-content,
+.experience-content,
+.skills-content,
+.education-content {
+  overflow-wrap: anywhere;
 }
 
 .site-header {
@@ -769,9 +795,13 @@ h2 span {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --page-gutter: 28px;
+  }
+
   .section-wrap,
   .site-header {
-    width: min(100% - 56px, 700px);
+    width: min(700px, calc(100% - 2 * var(--page-gutter)));
   }
 
   .hero {
@@ -818,9 +848,8 @@ h2 span {
 }
 
 @media (max-width: 600px) {
-  .section-wrap,
-  .site-header {
-    width: calc(100% - 40px);
+  :root {
+    --page-gutter: 20px;
   }
 
   .site-header {
@@ -1373,6 +1402,11 @@ a:focus-visible,
   grid-template-columns: 45px 1fr auto;
   gap: 15px;
   border-bottom: 1px solid var(--line);
+}
+
+.experience-card > div,
+.education-card > div {
+  min-width: 0;
 }
 
 .experience-symbol {
