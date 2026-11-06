@@ -19,4 +19,4 @@ The site entry point is `index.html` at the project root. Vercel can also deploy
 
 ## Personalize
 
-Update the page content and contact details in `index.html`. Project cards are labeled with their technologies and filter categories in their `data-categories` attributes. Adjust the presentation in `styles.css` and interactive navigation/project filters in `script.js`.
+Update the page content and contact details in `index.html`. Project descriptions, repository links, demo links, categories, and generated SVG thumbnails are maintained together in the `projects` array in `script.js`. Adjust the presentation in `styles.css` and interactive navigation/project filters in `script.js`.

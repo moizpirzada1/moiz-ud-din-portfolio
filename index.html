@@ -188,10 +188,10 @@
           <div class="work-content">
             <div class="work-heading">
               <div>
-                <p class="section-kicker">Applied AI in practice</p>
+                <p class="section-kicker">Projects from GitHub</p>
                 <h2>Projects with<br /><span>a purpose.</span></h2>
               </div>
-              <p class="focus-aside">A selection of research-driven and applied AI projects across vision, language, and intelligent systems.</p>
+              <p class="focus-aside">Browse the public AI and machine-learning projects on my GitHub. Related OralVision repositories are grouped together; one additional project was shared directly.</p>
             </div>
             <div class="project-filters" role="group" aria-label="Filter projects">
               <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All projects</button>
@@ -200,64 +200,10 @@
               <button class="filter-button" type="button" data-filter="machine-learning" aria-pressed="false">Machine learning</button>
               <button class="filter-button" type="button" data-filter="nlp" aria-pressed="false">NLP</button>
               <button class="filter-button" type="button" data-filter="agentic-ai" aria-pressed="false">Agentic AI</button>
+              <button class="filter-button" type="button" data-filter="other" aria-pressed="false">Other</button>
             </div>
-            <div class="project-grid" aria-live="polite">
-              <article class="project-card project-card-featured" data-categories="vision deep-learning">
-                <div class="project-visual visual-oralvision" aria-hidden="true"><span>OV</span><i></i><i></i><i></i></div>
-                <div class="project-body">
-                  <span class="project-category">MEDICAL AI / COMPUTER VISION</span>
-                  <h3>OralVision</h3>
-                  <p>A research-driven oral healthcare screening platform combining multi-class image classification with symptom-based assessment. Designed to support screening workflows—not replace professional diagnosis.</p>
-                  <div class="project-highlights"><span>Oral image classification</span><span>Dental X-ray analysis</span><span>Screening reports</span></div>
-                  <p class="project-stack"><strong>STACK</strong> Python · TensorFlow · EfficientNet-B0 · Coordinate Attention · YOLO · U-Net · FastAPI · Flutter · Supabase</p>
-                  <a class="project-link" href="https://jepcs.org/index.php/jepcs/article/view/48" target="_blank" rel="noopener noreferrer">Read the published research <span aria-hidden="true">↗</span></a>
-                </div>
-              </article>
-              <article class="project-card" data-categories="agentic-ai">
-                <div class="project-visual visual-sid" aria-hidden="true"><span>SID</span><i></i><i></i><i></i><i></i></div>
-                <div class="project-body">
-                  <span class="project-category">AGENTIC AI / AUTOMATION</span>
-                  <h3>SID — Smart Intelligent Developer</h3>
-                  <p>A multi-agent software agency architecture coordinating specialized agents for software-development and business workflows.</p>
-                  <div class="project-highlights"><span>Agent coordination</span><span>Structured JSON communication</span><span>Quality-control workflows</span></div>
-                  <p class="project-stack"><strong>STACK</strong> Python · FastAPI · Next.js · React · TypeScript · Supabase · Gemini · Groq · Ollama</p>
-                </div>
-              </article>
-              <article class="project-card" data-categories="nlp machine-learning">
-                <div class="project-visual visual-resume" aria-hidden="true"><span>CV</span><i></i><i></i><i></i></div>
-                <div class="project-body">
-                  <span class="project-category">NLP / MACHINE LEARNING</span>
-                  <h3>Resume Matching AI</h3>
-                  <p>Matches resume content to job descriptions to help surface relevant candidates and make the comparison easier to review.</p>
-                  <div class="project-highlights"><span>PDF text extraction</span><span>Candidate ranking</span><span>Keyword identification</span><span>CSV export</span></div>
-                  <p class="project-stack"><strong>STACK</strong> Python · TF-IDF · Cosine similarity · PDF processing</p>
-                </div>
-              </article>
-              <article class="project-card" data-categories="machine-learning">
-                <div class="project-visual visual-network" aria-hidden="true"><span>IDS</span><i></i><i></i><i></i><i></i></div>
-                <div class="project-body">
-                  <span class="project-category">MACHINE LEARNING / CYBERSECURITY</span>
-                  <h3>CICIDS2017 Intrusion Detection</h3>
-                  <p>A machine-learning classification project using network traffic data to distinguish normal activity from attack categories.</p>
-                  <div class="project-highlights"><span>Data preprocessing</span><span>Feature engineering</span><span>Traffic classification</span></div>
-                  <p class="project-stack"><strong>STACK</strong> Python · Scikit-learn · Random Forest · Pandas · NumPy</p>
-                </div>
-              </article>
-              <article class="project-card" data-categories="deep-learning machine-learning">
-                <div class="project-visual visual-time" aria-hidden="true"><span>LSTM</span><i></i><i></i><i></i></div>
-                <div class="project-body">
-                  <span class="project-category">DEEP LEARNING / TIME SERIES</span>
-                  <h3>Stock Price Prediction</h3>
-                  <p>An LSTM-based time-series project exploring historical stock data and short-term price movement prediction.</p>
-                  <div class="project-highlights"><span>Sequence modeling</span><span>Historical data analysis</span><span>Data visualization</span></div>
-                  <p class="project-stack"><strong>STACK</strong> Python · TensorFlow / Keras · LSTM · Pandas · NumPy</p>
-                </div>
-              </article>
-            </div>
-            <div class="additional-work">
-              <h3>More explorations</h3>
-              <p>Shop-Genie · House Price Prediction · Health Query Chatbot · Heart Disease Prediction · Credit Score Prediction · Handwritten Character Recognition · Medical Data Disease Prediction · Plant Disease Classification</p>
-            </div>
+            <p class="project-count" id="project-count" aria-live="polite"></p>
+            <div class="project-grid" id="project-grid" aria-label="Project gallery"></div>
           </div>
         </section>
 
