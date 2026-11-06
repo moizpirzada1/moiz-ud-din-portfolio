@@ -1070,6 +1070,139 @@ h2 span {
   }
 }
 
+.scroll-progress {
+  position: fixed;
+  z-index: 20;
+  inset: 0 0 auto;
+  height: 2px;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #9fb94d, var(--acid), #efffb2);
+  box-shadow: 0 0 12px rgba(211, 243, 107, 0.55);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .status-dot {
+    animation: status-glow 2.8s ease-in-out infinite;
+  }
+
+  .scroll-cue span {
+    animation: cue-sweep 2.2s ease-in-out infinite;
+  }
+
+  .hero-art {
+    background:
+      radial-gradient(
+        circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+        rgba(211, 243, 107, 0.12),
+        transparent 38%
+      ),
+      radial-gradient(ellipse at 50% 49%, #20271a 0, #151713 43%, #11120f 75%);
+    transition: border-color 220ms ease;
+  }
+
+  .focus-symbol {
+    transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1), color 220ms ease;
+  }
+
+  .focus-card:hover .focus-symbol {
+    color: #e0ff84;
+    transform: translateY(-4px) rotate(-7deg);
+  }
+
+  .closing-star {
+    transform-origin: center;
+  }
+
+  .closing-section:hover .closing-star {
+    animation: star-turn 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .button-primary span,
+  .button-dark span,
+  .nav-cta span,
+  .card-arrow,
+  .education-arrow {
+    display: inline-block;
+    transition: transform 200ms ease;
+  }
+
+  .button-primary:hover span,
+  .button-dark:hover span,
+  .nav-cta:hover span,
+  .student-card:hover .card-arrow,
+  .education-card:hover .education-arrow {
+    transform: translate(3px, -2px);
+  }
+
+  .project-highlights span {
+    transition:
+      border-color 180ms ease,
+      color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .project-card:hover .project-highlights span {
+    border-color: rgba(211, 243, 107, 0.22);
+    color: var(--ink);
+  }
+
+  .site-footer .footer-mark span {
+    transition: color 180ms ease, text-shadow 180ms ease;
+  }
+
+  .site-footer .footer-mark:hover span {
+    color: #e0ff84;
+    text-shadow: 0 0 14px rgba(211, 243, 107, 0.7);
+  }
+}
+
+@keyframes status-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(211, 243, 107, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 17px rgba(211, 243, 107, 0.9);
+  }
+}
+
+@keyframes cue-sweep {
+  0%,
+  100% {
+    transform: scaleX(0.65);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes star-turn {
+  from {
+    transform: rotate(0) scale(1);
+  }
+
+  50% {
+    transform: rotate(90deg) scale(1.12);
+  }
+
+  to {
+    transform: rotate(180deg) scale(1);
+  }
+}
+
 .work-section,
 .research-section,
 .experience-section,

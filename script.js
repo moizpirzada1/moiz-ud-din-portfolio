@@ -1,5 +1,47 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
+const scrollProgress = document.querySelector(".scroll-progress span");
+
+if (scrollProgress) {
+  let progressFrame = 0;
+  const updateScrollProgress = () => {
+    if (progressFrame) {
+      return;
+    }
+
+    progressFrame = window.requestAnimationFrame(() => {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress =
+        scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+      progressFrame = 0;
+    });
+  };
+
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
+  updateScrollProgress();
+}
+
+const heroArt = document.querySelector(".hero-art");
+if (
+  heroArt &&
+  window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches
+) {
+  heroArt.addEventListener("pointermove", (event) => {
+    const bounds = heroArt.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+    heroArt.style.setProperty("--pointer-x", `${x}%`);
+    heroArt.style.setProperty("--pointer-y", `${y}%`);
+  });
+
+  heroArt.addEventListener("pointerleave", () => {
+    heroArt.style.removeProperty("--pointer-x");
+    heroArt.style.removeProperty("--pointer-y");
+  });
+}
 
 if (menuToggle && siteNav) {
   menuToggle.addEventListener("click", () => {
