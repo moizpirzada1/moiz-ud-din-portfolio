@@ -425,11 +425,53 @@ function projectCard(project) {
     .map((highlight) => `<span>${escapeHtml(highlight)}</span>`)
     .join("");
 
-  return `<article class="project-card${project.featured ? " project-card-featured" : ""}" data-categories="${project.categories.map(escapeHtml).join(" ")}"><div class="project-visual">${projectThumbnail(project)}</div><div class="project-body"><span class="project-category">${escapeHtml(project.category)}</span><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description)}</p><div class="project-highlights">${chips}</div><p class="project-stack"><strong>STACK</strong> ${escapeHtml(project.stack)}</p><div class="project-links">${repositoryLink}${links}${demoLink}${sourceNote}</div></div></article>`;
+  return `<article class="project-card${project.featured ? " project-card-featured" : ""}" data-reveal data-categories="${project.categories.map(escapeHtml).join(" ")}"><div class="project-visual">${projectThumbnail(project)}</div><div class="project-body"><span class="project-category">${escapeHtml(project.category)}</span><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description)}</p><div class="project-highlights">${chips}</div><p class="project-stack"><strong>STACK</strong> ${escapeHtml(project.stack)}</p><div class="project-links">${repositoryLink}${links}${demoLink}${sourceNote}</div></div></article>`;
 }
 
 if (projectGrid) {
   projectGrid.innerHTML = projects.map(projectCard).join("");
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const revealElements = document.querySelectorAll(
+  ".section-index, .intro-content, .focus-heading, .focus-card, .work-heading, .research-card, .experience-card, .skill-group, .education-card, .closing-grid",
+);
+
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  let observerHasReported = false;
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      observerHasReported = true;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -36px 0px" },
+  );
+
+  revealElements.forEach((element, index) => {
+    element.setAttribute("data-reveal", "");
+    element.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+    revealObserver.observe(element);
+  });
+
+  document.querySelectorAll("#project-grid .project-card").forEach((element, index) => {
+    element.style.setProperty("--reveal-delay", `${(index % 6) * 45}ms`);
+    revealObserver.observe(element);
+  });
+  document.documentElement.classList.add("has-motion");
+
+  window.setTimeout(() => {
+    if (!observerHasReported) {
+      document.querySelectorAll("[data-reveal]").forEach((element) => {
+        element.classList.add("is-visible");
+      });
+      revealObserver.disconnect();
+    }
+  }, 2000);
 }
 
 function updateProjectCount(filter = "all") {

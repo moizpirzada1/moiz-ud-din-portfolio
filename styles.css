@@ -1936,3 +1936,200 @@ a:focus-visible,
     text-align: left;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy {
+    animation: hero-enter 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero-art {
+    animation: hero-enter 850ms 100ms cubic-bezier(0.2, 0.7, 0.2, 1) both,
+      art-glow 7s 1s ease-in-out infinite alternate;
+  }
+
+  .orbital-one {
+    animation: orbit-breathe 5s ease-in-out infinite alternate;
+  }
+
+  .orbital-two {
+    animation: orbit-breathe 7s 500ms ease-in-out infinite alternate-reverse;
+  }
+
+  .network circle:not(.core) {
+    animation: node-pulse 4s ease-in-out infinite alternate;
+  }
+
+  .network circle:not(.core):nth-of-type(2n) {
+    animation-delay: 800ms;
+  }
+
+  .hero-art:hover {
+    border-color: rgba(211, 243, 107, 0.3);
+  }
+
+  .site-nav a:not(.nav-cta) {
+    position: relative;
+  }
+
+  .site-nav a:not(.nav-cta)::after {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    height: 1px;
+    background: var(--acid);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+
+  .site-nav a:not(.nav-cta):hover::after {
+    transform: scaleX(1);
+  }
+
+  .button-primary,
+  .button-dark,
+  .filter-button,
+  .menu-toggle {
+    transition:
+      transform 180ms ease,
+      color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .button-primary:hover,
+  .button-dark:hover {
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+  }
+
+  .filter-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .project-card,
+  .focus-card,
+  .student-card,
+  .research-card,
+  .experience-card,
+  .skill-group,
+  .education-card {
+    transition:
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease,
+      transform 220ms ease;
+  }
+
+  .project-card:hover,
+  .research-card:hover,
+  .education-card:hover {
+    border-color: rgba(211, 243, 107, 0.42);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+    transform: translateY(-4px);
+  }
+
+  .project-visual {
+    overflow: hidden;
+  }
+
+  .project-thumbnail {
+    transition: transform 350ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .project-card:hover .project-thumbnail {
+    transform: scale(1.035);
+  }
+
+  .focus-card:hover,
+  .skill-group:hover {
+    background-color: rgba(211, 243, 107, 0.045);
+  }
+
+  .student-card:hover {
+    border-color: rgba(211, 243, 107, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .experience-card:hover {
+    border-color: rgba(211, 243, 107, 0.35);
+  }
+
+  .project-link {
+    transition: color 160ms ease, gap 160ms ease;
+  }
+
+  .project-link:hover {
+    gap: 12px;
+    color: #e0ff84;
+  }
+
+  .has-motion [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .has-motion [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes art-glow {
+  from {
+    box-shadow: 0 0 0 rgba(211, 243, 107, 0);
+  }
+
+  to {
+    box-shadow: 0 0 34px rgba(211, 243, 107, 0.07);
+  }
+}
+
+@keyframes orbit-breathe {
+  from {
+    opacity: 0.55;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes node-pulse {
+  from {
+    opacity: 0.62;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
